@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Building2, Home, Wrench, HardHat, Landmark, ClipboardList, Star, Phone, ArrowRight, CheckCircle } from "lucide-react";
+import { seoConfig, getImage } from "@/lib/config";
+import PageHead from "@/components/PageHead";
 import heroImage from "@/assets/hero-construction.jpg";
 import projectResidential from "@/assets/project-residential.jpg";
 import projectCommercial from "@/assets/project-commercial.jpg";
@@ -20,43 +22,19 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
   );
 }
 
-const stats = [
-  { value: "150+", label: "Projects Completed" },
-  { value: "$25M+", label: "In Builds" },
-  { value: "15", label: "Years Experience" },
-  { value: "100%", label: "Bonded & Licensed" },
-];
-
-const services = [
-  { icon: Home, title: "Custom Homes", desc: "Dream homes built from the ground up with precision and care." },
-  { icon: Building2, title: "Commercial Buildings", desc: "Office, retail, and industrial structures built to spec." },
-  { icon: Wrench, title: "Renovations & Additions", desc: "Transforming existing spaces with expert craftsmanship." },
-  { icon: Landmark, title: "Concrete & Foundation", desc: "Solid foundations and structural concrete work." },
-  { icon: HardHat, title: "Metal Buildings", desc: "Pre-engineered and custom metal building solutions." },
-  { icon: ClipboardList, title: "Project Management", desc: "End-to-end oversight for complex construction projects." },
-];
-
-const steps = [
-  { num: "01", title: "Consultation", desc: "We listen to your vision and assess feasibility." },
-  { num: "02", title: "Design", desc: "Architectural plans and engineering drawings." },
-  { num: "03", title: "Permits", desc: "We handle all permits and regulatory approvals." },
-  { num: "04", title: "Construction", desc: "Skilled crews bring the project to life." },
-  { num: "05", title: "Handover", desc: "Final inspection, walkthrough, and keys in hand." },
-];
-
-const testimonials = [
-  { name: "Marcus Thornton", role: "Homeowner", text: "Ironclad delivered our custom home on time and under budget. The attention to detail was remarkable — every corner of this house feels intentional.", stars: 5 },
-  { name: "Sarah Chen", role: "CEO, Meridian Properties", text: "We've completed three commercial projects with Ironclad. Their project management is best-in-class and communication is always clear.", stars: 5 },
-  { name: "David Ramos", role: "Restaurant Owner", text: "Our restaurant renovation was complex — structural work, plumbing, electrical, the works. Ironclad handled it all without a single hiccup.", stars: 5 },
-];
+const serviceIcons = [Home, Building2, Wrench, Landmark, HardHat, ClipboardList];
 
 export default function Index() {
+  const { stats, services, steps, certifications, testimonials, featuredProject } = seoConfig;
+
   return (
     <main>
+      <PageHead page="home" />
+
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImage} alt="Construction site at golden hour" className="w-full h-full object-cover" />
+          <img src={getImage(null, 'hero', heroImage)} alt={`${seoConfig.businessName} - ${seoConfig.industry}`} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/40" />
         </div>
         <div className="container relative z-10 pt-20 pb-32">
@@ -67,7 +45,7 @@ export default function Index() {
               At a Time.
             </h1>
             <p className="mt-6 text-lg text-secondary-foreground/70 max-w-lg animate-fade-up" style={{ animationDelay: "150ms" }}>
-              Residential and commercial general contractor. Licensed, bonded, and insured — delivering quality construction for over 15 years.
+              Residential and commercial {seoConfig.industry.toLowerCase()}. Licensed, bonded, and insured — delivering quality construction for over {parseInt(seoConfig.stats[2]?.value) || 15} years.
             </p>
             <div className="mt-8 flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "300ms" }}>
               <Link to="/contact">
@@ -79,7 +57,6 @@ export default function Index() {
             </div>
           </div>
         </div>
-        {/* Diagonal cut bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-background" style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }} />
       </section>
 
@@ -107,18 +84,21 @@ export default function Index() {
             <div className="w-16 h-1 bg-gold mx-auto mt-4" />
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
-            {services.map((s, i) => (
-              <Reveal key={s.title} delay={i * 80}>
-                <div className="bg-card p-8 border border-border shadow-sm hover:shadow-md transition-shadow duration-300 group">
-                  <s.icon className="w-10 h-10 text-primary mb-4 group-hover:scale-105 transition-transform duration-200" />
-                  <h3 className="font-heading text-xl font-semibold uppercase tracking-wide">{s.title}</h3>
-                  <p className="text-muted-foreground text-sm mt-2 leading-relaxed">{s.desc}</p>
-                  <Link to="/services" className="inline-flex items-center gap-1 text-primary text-sm font-medium mt-4 hover:gap-2 transition-all duration-200">
-                    Learn more <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </Reveal>
-            ))}
+            {services.map((s, i) => {
+              const Icon = serviceIcons[i] || Building2;
+              return (
+                <Reveal key={s.title} delay={i * 80}>
+                  <div className="bg-card p-8 border border-border shadow-sm hover:shadow-md transition-shadow duration-300 group">
+                    <Icon className="w-10 h-10 text-primary mb-4 group-hover:scale-105 transition-transform duration-200" />
+                    <h3 className="font-heading text-xl font-semibold uppercase tracking-wide">{s.title}</h3>
+                    <p className="text-muted-foreground text-sm mt-2 leading-relaxed">{s.shortDesc}</p>
+                    <Link to="/services" className="inline-flex items-center gap-1 text-primary text-sm font-medium mt-4 hover:gap-2 transition-all duration-200">
+                      Learn more <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -134,16 +114,14 @@ export default function Index() {
           </Reveal>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16 items-center">
             <Reveal className="overflow-hidden">
-              <img src={projectResidential} alt="Meridian Heights Residence" className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700" />
+              <img src={getImage(null, featuredProject.imageSlot, projectResidential)} alt={featuredProject.title} className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700" />
             </Reveal>
             <Reveal delay={150}>
-              <span className="font-heading text-xs uppercase tracking-[0.2em] text-gold">Residential / Custom Home</span>
-              <h3 className="font-heading text-3xl md:text-4xl font-bold uppercase mt-2">Meridian Heights Residence</h3>
-              <p className="text-muted-foreground mt-4 leading-relaxed">
-                A 4,200 sq ft custom home featuring open-concept living, a chef's kitchen with marble counters, and panoramic views. Completed 3 weeks ahead of schedule.
-              </p>
+              <span className="font-heading text-xs uppercase tracking-[0.2em] text-gold">{featuredProject.type}</span>
+              <h3 className="font-heading text-3xl md:text-4xl font-bold uppercase mt-2">{featuredProject.title}</h3>
+              <p className="text-muted-foreground mt-4 leading-relaxed">{featuredProject.desc}</p>
               <div className="grid grid-cols-3 gap-4 mt-6">
-                {[["4,200 sf", "Area"], ["8 Months", "Timeline"], ["Metro City", "Location"]].map(([val, label]) => (
+                {featuredProject.stats.map(([val, label]) => (
                   <div key={label}>
                     <div className="font-heading text-xl font-bold text-gold">{val}</div>
                     <div className="text-xs uppercase tracking-wider text-muted-foreground">{label}</div>
@@ -158,7 +136,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Process / How We Build */}
+      {/* Process */}
       <section className="py-24">
         <div className="container">
           <Reveal>
@@ -168,7 +146,6 @@ export default function Index() {
             <div className="w-16 h-1 bg-gold mx-auto mt-4" />
           </Reveal>
           <div className="mt-16 relative">
-            {/* Timeline line */}
             <div className="hidden md:block absolute top-8 left-0 right-0 h-0.5 bg-border" />
             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4">
               {steps.map((s, i) => (
@@ -190,7 +167,7 @@ export default function Index() {
         <div className="container">
           <Reveal>
             <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
-              {["OSHA Certified", "EPA Lead-Safe", "BBB A+ Rated", "NAHB Member", "Fully Insured"].map((cert) => (
+              {certifications.map((cert) => (
                 <div key={cert} className="flex items-center gap-2 text-muted-foreground">
                   <CheckCircle className="w-5 h-5 text-primary" />
                   <span className="font-heading text-sm uppercase tracking-wider">{cert}</span>
@@ -243,8 +220,8 @@ export default function Index() {
               <Link to="/contact">
                 <Button variant="hero">Request a Bid</Button>
               </Link>
-              <a href="tel:5551234567" className="flex items-center gap-2 text-secondary-foreground/70 hover:text-primary transition-colors font-heading uppercase tracking-wider text-sm">
-                <Phone className="w-5 h-5 text-primary" /> (555) 123-4567
+              <a href={`tel:${seoConfig.phoneRaw}`} className="flex items-center gap-2 text-secondary-foreground/70 hover:text-primary transition-colors font-heading uppercase tracking-wider text-sm">
+                <Phone className="w-5 h-5 text-primary" /> {seoConfig.phone}
               </a>
             </div>
           </Reveal>
