@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { seoConfig } from "@/lib/config";
 
 const links = [
   { href: "/", label: "Home" },
@@ -15,11 +16,15 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
 
+  // Derive brand display from config
+  const brandParts = seoConfig.businessName.toUpperCase().split(" ");
+  const brandMain = brandParts[0];
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-sm border-b border-primary/20">
       <div className="container flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="font-heading text-xl md:text-2xl font-bold tracking-wider text-primary-foreground">
-          IRONCLAD<span className="text-primary">.</span>
+          {brandMain}<span className="text-primary">.</span>
         </Link>
 
         {/* Desktop */}

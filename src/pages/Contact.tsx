@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { toast } from "sonner";
+import { seoConfig } from "@/lib/config";
+import PageHead from "@/components/PageHead";
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const { ref, isVisible } = useScrollReveal(0.15);
@@ -26,6 +28,8 @@ export default function Contact() {
 
   return (
     <main className="pt-20">
+      <PageHead page="contact" />
+
       <section className="section-dark py-24">
         <div className="container">
           <Reveal>
@@ -74,24 +78,18 @@ export default function Contact() {
                       <label className="font-heading text-xs uppercase tracking-wider text-muted-foreground mb-1 block">Project Type</label>
                       <select className={inputClass}>
                         <option value="">Select a project type</option>
-                        <option>Custom Home</option>
-                        <option>Commercial Building</option>
-                        <option>Renovation</option>
-                        <option>Concrete & Foundation</option>
-                        <option>Metal Building</option>
-                        <option>Project Management</option>
-                        <option>Other</option>
+                        {seoConfig.contactForm.projectTypes.map((t) => (
+                          <option key={t}>{t}</option>
+                        ))}
                       </select>
                     </div>
                     <div>
                       <label className="font-heading text-xs uppercase tracking-wider text-muted-foreground mb-1 block">Estimated Budget</label>
                       <select className={inputClass}>
                         <option value="">Select budget range</option>
-                        <option>Under $100K</option>
-                        <option>$100K – $250K</option>
-                        <option>$250K – $500K</option>
-                        <option>$500K – $1M</option>
-                        <option>$1M+</option>
+                        {seoConfig.contactForm.budgetRanges.map((b) => (
+                          <option key={b}>{b}</option>
+                        ))}
                       </select>
                     </div>
                   </div>
@@ -117,38 +115,37 @@ export default function Contact() {
               <div className="section-dark p-8 space-y-6">
                 <h3 className="font-heading text-xl font-semibold uppercase text-gold">Contact Info</h3>
                 <div className="space-y-4">
-                  <a href="tel:5551234567" className="flex items-start gap-3 text-secondary-foreground/80 hover:text-primary transition-colors">
+                  <a href={`tel:${seoConfig.phoneRaw}`} className="flex items-start gap-3 text-secondary-foreground/80 hover:text-primary transition-colors">
                     <Phone className="w-5 h-5 text-primary mt-0.5" />
                     <div>
-                      <div className="font-medium">(555) 123-4567</div>
+                      <div className="font-medium">{seoConfig.phone}</div>
                       <div className="text-xs text-muted-foreground">Call or text</div>
                     </div>
                   </a>
-                  <a href="mailto:info@ironcladbuilds.com" className="flex items-start gap-3 text-secondary-foreground/80 hover:text-primary transition-colors">
+                  <a href={`mailto:${seoConfig.email}`} className="flex items-start gap-3 text-secondary-foreground/80 hover:text-primary transition-colors">
                     <Mail className="w-5 h-5 text-primary mt-0.5" />
                     <div>
-                      <div className="font-medium">info@ironcladbuilds.com</div>
+                      <div className="font-medium">{seoConfig.email}</div>
                       <div className="text-xs text-muted-foreground">We respond within 24 hours</div>
                     </div>
                   </a>
                   <div className="flex items-start gap-3 text-secondary-foreground/80">
                     <MapPin className="w-5 h-5 text-primary mt-0.5" />
                     <div>
-                      <div className="font-medium">1234 Builder Avenue</div>
-                      <div className="text-xs text-muted-foreground">Metro City, ST 12345</div>
+                      <div className="font-medium">{seoConfig.address.street}</div>
+                      <div className="text-xs text-muted-foreground">{seoConfig.address.city}, {seoConfig.address.state} {seoConfig.address.zip}</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 text-secondary-foreground/80">
                     <Clock className="w-5 h-5 text-primary mt-0.5" />
                     <div>
-                      <div className="font-medium">Mon – Fri: 7AM – 5PM</div>
-                      <div className="text-xs text-muted-foreground">Sat: By appointment</div>
+                      <div className="font-medium">{seoConfig.hours.weekday}</div>
+                      <div className="text-xs text-muted-foreground">{seoConfig.hours.weekend}</div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Map placeholder */}
               <div className="mt-6 bg-muted border border-border h-64 flex items-center justify-center">
                 <span className="text-muted-foreground font-heading text-sm uppercase tracking-wider">Map Placeholder</span>
               </div>
