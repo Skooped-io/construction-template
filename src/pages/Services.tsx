@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Home, Building2, Wrench, Landmark, HardHat, ClipboardList, ArrowRight } from "lucide-react";
-import { seoConfig, getImage } from "@/lib/config";
+import { seoConfig, getImage, slugify } from "@/lib/config";
 import PageHead from "@/components/PageHead";
 import projectResidential from "@/assets/project-residential.jpg";
 import projectCommercial from "@/assets/project-commercial.jpg";
@@ -66,9 +66,14 @@ export default function Services() {
                         </li>
                       ))}
                     </ul>
-                    <Link to="/contact" className="mt-6 inline-block">
-                      <Button variant="default">Request a Bid for {s.title}</Button>
-                    </Link>
+                    <div className="flex flex-wrap gap-3 mt-6">
+                      <Link to={`/services/${slugify(s.title)}`}>
+                        <Button variant="default">Learn More <ArrowRight className="w-4 h-4 ml-1" /></Button>
+                      </Link>
+                      <Link to="/contact">
+                        <Button variant="outline">Request a Bid</Button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
                 {i < services.length - 1 && <div className="border-b border-border mt-24" />}
