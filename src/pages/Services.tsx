@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Home, Building2, Wrench, Landmark, HardHat, ClipboardList, ArrowRight } from "lucide-react";
-import { seoConfig, getImage } from "@/lib/config";
+import { seoConfig, getImage, slugify } from "@/lib/config";
 import PageHead from "@/components/PageHead";
 import projectResidential from "@/assets/project-residential.jpg";
 import projectCommercial from "@/assets/project-commercial.jpg";
