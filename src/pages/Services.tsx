@@ -66,9 +66,14 @@ export default function Services() {
                         </li>
                       ))}
                     </ul>
-                    <Link to="/contact" className="mt-6 inline-block">
-                      <Button variant="default">Request a Bid for {s.title}</Button>
-                    </Link>
+                    <div className="flex flex-wrap gap-3 mt-6">
+                      <Link to={`/services/${slugify(s.title)}`}>
+                        <Button variant="default">Learn More <ArrowRight className="w-4 h-4 ml-1" /></Button>
+                      </Link>
+                      <Link to="/contact">
+                        <Button variant="outline">Request a Bid</Button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
                 {i < services.length - 1 && <div className="border-b border-border mt-24" />}
