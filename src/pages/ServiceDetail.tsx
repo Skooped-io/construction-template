@@ -189,7 +189,7 @@ export default function ServiceDetail() {
               <Reveal>
                 <div className="bg-secondary text-white p-8 md:p-12">
                   <h2 className="font-heading text-3xl font-bold uppercase">Get a Free Estimate</h2>
-                  <p className="text-gray-400 mt-2">Ready to start your {service.title.toLowerCase()} project? Contact us for a no-obligation bid.</p>
+                  <p className="text-muted-foreground mt-2">Ready to start your {service.title.toLowerCase()} project? Contact us for a no-obligation bid.</p>
                   <div className="flex flex-wrap items-center gap-4 mt-6">
                     <Link to="/contact">
                       <Button variant="default" size="lg">Request a Bid</Button>
