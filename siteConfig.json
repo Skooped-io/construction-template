@@ -1,0 +1,162 @@
+{
+  "businessName": "Ironclad Construction",
+  "phone": "(555) 123-4567",
+  "phoneRaw": "5551234567",
+  "email": "info@ironcladbuilds.com",
+  "address": {
+    "street": "1234 Builder Avenue",
+    "city": "Metro City",
+    "state": "ST",
+    "zip": "12345",
+    "full": "1234 Builder Ave, Metro City"
+  },
+  "serviceArea": "Greater Metro City Area",
+  "industry": "General Contractor",
+  "yearEstablished": "2009",
+  "licenseNumber": "12345",
+  "about": "Licensed general contractor building residential and commercial projects across the greater metro area since 2009.",
+  "founder": {
+    "name": "Robert Garrison",
+    "title": "Founder & President",
+    "bio": "With 25 years in construction — from framing houses as a teenager to managing multi-million dollar commercial builds — Robert founded Ironclad Construction in 2009 with a simple belief: good work speaks for itself.",
+    "bio2": "Starting with residential renovations and custom homes, the company grew through referrals and repeat clients. Today, Ironclad is one of the most trusted general contractors in the metro area, with over 150 completed projects and a team of 40+ skilled professionals."
+  },
+  "services": [
+    {
+      "title": "Custom Homes",
+      "shortDesc": "Dream homes built from the ground up with precision and care.",
+      "scope": "Ground-up residential construction from lot prep to final walkthrough.",
+      "timeline": "8–14 months typical build time",
+      "includes": ["Site prep & foundation", "Framing & structural work", "Electrical, plumbing, HVAC", "Interior finishes & flooring", "Landscaping & exterior"],
+      "imageSlot": "service_custom_homes"
+    },
+    {
+      "title": "Commercial Buildings",
+      "shortDesc": "Office, retail, and industrial structures built to spec.",
+      "scope": "Office, retail, industrial, and mixed-use commercial construction.",
+      "timeline": "12–24 months depending on scale",
+      "includes": ["Steel & concrete structures", "Tenant improvements", "Code compliance & ADA", "Parking & site work", "LEED certification support"],
+      "imageSlot": "service_commercial"
+    },
+    {
+      "title": "Renovations & Additions",
+      "shortDesc": "Transforming existing spaces with expert craftsmanship.",
+      "scope": "Modernize, expand, or completely transform existing spaces.",
+      "timeline": "4–10 months typical",
+      "includes": ["Kitchen & bath remodels", "Room additions", "Structural modifications", "Electrical upgrades", "Interior design coordination"],
+      "imageSlot": "service_renovation"
+    },
+    {
+      "title": "Concrete & Foundation",
+      "shortDesc": "Solid foundations and structural concrete work.",
+      "scope": "Structural concrete work for residential and commercial projects.",
+      "timeline": "2–8 weeks depending on scope",
+      "includes": ["Slab foundations", "Retaining walls", "Structural footings", "Decorative concrete", "Waterproofing"],
+      "imageSlot": "service_concrete"
+    },
+    {
+      "title": "Metal Buildings",
+      "shortDesc": "Pre-engineered and custom metal building solutions.",
+      "scope": "Pre-engineered and custom metal building solutions.",
+      "timeline": "6–12 months",
+      "includes": ["Warehouses & shops", "Agricultural buildings", "Aircraft hangars", "Custom facades", "Insulation & climate control"],
+      "imageSlot": "service_metal"
+    },
+    {
+      "title": "Project Management",
+      "shortDesc": "End-to-end oversight for complex construction projects.",
+      "scope": "End-to-end construction management for complex builds.",
+      "timeline": "Duration of project",
+      "includes": ["Budget oversight", "Scheduling & coordination", "Subcontractor management", "Quality assurance", "Owner representation"],
+      "imageSlot": "service_pm"
+    }
+  ],
+  "stats": [
+    { "value": "150+", "label": "Projects Completed" },
+    { "value": "$25M+", "label": "In Builds" },
+    { "value": "15", "label": "Years Experience" },
+    { "value": "100%", "label": "Bonded & Licensed" }
+  ],
+  "certifications": ["OSHA Certified", "EPA Lead-Safe", "BBB A+ Rated", "NAHB Member", "Fully Insured"],
+  "testimonials": [
+    { "name": "Marcus Thornton", "role": "Homeowner", "text": "Ironclad delivered our custom home on time and under budget. The attention to detail was remarkable — every corner of this house feels intentional.", "stars": 5 },
+    { "name": "Sarah Chen", "role": "CEO, Meridian Properties", "text": "We've completed three commercial projects with Ironclad. Their project management is best-in-class and communication is always clear.", "stars": 5 },
+    { "name": "David Ramos", "role": "Restaurant Owner", "text": "Our restaurant renovation was complex — structural work, plumbing, electrical, the works. Ironclad handled it all without a single hiccup.", "stars": 5 }
+  ],
+  "projects": [
+    { "title": "Meridian Heights Residence", "type": "Residential", "imageSlot": "project_1", "sqft": "4,200", "date": "2024", "location": "Metro City", "desc": "Custom 4-bedroom home with open-concept living, chef's kitchen, and panoramic views." },
+    { "title": "Apex Office Center", "type": "Commercial", "imageSlot": "project_2", "sqft": "18,500", "date": "2023", "location": "Downtown", "desc": "Class A office building with LEED certification, modern lobby, and rooftop terrace." },
+    { "title": "Heritage Kitchen Remodel", "type": "Renovation", "imageSlot": "project_3", "sqft": "800", "date": "2024", "location": "Westside", "desc": "Complete kitchen renovation with marble counters, custom cabinetry, and gold hardware." },
+    { "title": "Valley Commerce Foundation", "type": "Specialty", "imageSlot": "project_4", "sqft": "12,000", "date": "2023", "location": "Industrial Park", "desc": "Structural concrete and foundation work for a large commercial distribution center." },
+    { "title": "Creekside Family Home", "type": "Residential", "imageSlot": "project_5", "sqft": "3,100", "date": "2023", "location": "Creekside Estates", "desc": "Modern farmhouse with wrap-around porch, custom finishes throughout." },
+    { "title": "Metro Retail Plaza", "type": "Commercial", "imageSlot": "project_6", "sqft": "22,000", "date": "2022", "location": "Metro City", "desc": "Multi-tenant retail space with custom storefronts, shared parking, and utility infrastructure." }
+  ],
+  "milestones": [
+    { "year": "2009", "event": "Company founded by Robert Garrison" },
+    { "year": "2012", "event": "Completed 25th residential project" },
+    { "year": "2015", "event": "Expanded into commercial construction" },
+    { "year": "2018", "event": "Reached $10M in annual builds" },
+    { "year": "2021", "event": "100th project milestone" },
+    { "year": "2024", "event": "150+ projects completed, growing strong" }
+  ],
+  "values": [
+    { "title": "Safety", "desc": "Zero-compromise safety culture. OSHA-compliant protocols on every site." },
+    { "title": "Quality", "desc": "Premium materials, skilled craftsmen, and rigorous quality control." },
+    { "title": "Integrity", "desc": "Transparent pricing, honest timelines, and no hidden surprises." },
+    { "title": "Communication", "desc": "Weekly updates, open-door policy, and responsive project managers." }
+  ],
+  "steps": [
+    { "num": "01", "title": "Consultation", "desc": "We listen to your vision and assess feasibility." },
+    { "num": "02", "title": "Design", "desc": "Architectural plans and engineering drawings." },
+    { "num": "03", "title": "Permits", "desc": "We handle all permits and regulatory approvals." },
+    { "num": "04", "title": "Construction", "desc": "Skilled crews bring the project to life." },
+    { "num": "05", "title": "Handover", "desc": "Final inspection, walkthrough, and keys in hand." }
+  ],
+  "featuredProject": {
+    "title": "Meridian Heights Residence",
+    "type": "Residential / Custom Home",
+    "desc": "A 4,200 sq ft custom home featuring open-concept living, a chef's kitchen with marble counters, and panoramic views. Completed 3 weeks ahead of schedule.",
+    "stats": [
+      ["4,200 sf", "Area"],
+      ["8 Months", "Timeline"],
+      ["Metro City", "Location"]
+    ],
+    "imageSlot": "featured_project"
+  },
+  "contactForm": {
+    "projectTypes": ["Custom Home", "Commercial Building", "Renovation", "Concrete & Foundation", "Metal Building", "Project Management", "Other"],
+    "budgetRanges": ["Under $100K", "$100K – $250K", "$250K – $500K", "$500K – $1M", "$1M+"]
+  },
+  "hours": {
+    "weekday": "Mon – Fri: 7AM – 5PM",
+    "weekend": "Sat: By appointment"
+  },
+  "seo": {
+    "home": {
+      "title": "Ironclad Construction | General Contractor in Metro City, ST",
+      "description": "Licensed general contractor serving Metro City. Custom homes, commercial buildings, renovations, and concrete work. 150+ projects completed. Request a free bid today.",
+      "h1": "Building Trust. One Project At a Time."
+    },
+    "about": {
+      "title": "About Ironclad Construction | Metro City, ST",
+      "description": "Learn about Ironclad Construction — founded in 2009 by Robert Garrison. 15+ years of experience, 150+ projects, and a zero-incident safety record."
+    },
+    "services": {
+      "title": "Construction Services | Ironclad Construction",
+      "description": "Full-service general contractor offering custom homes, commercial buildings, renovations, concrete & foundation, metal buildings, and project management."
+    },
+    "projects": {
+      "title": "Our Projects | Ironclad Construction Portfolio",
+      "description": "Browse Ironclad Construction's portfolio of residential, commercial, renovation, and specialty projects across the greater Metro City area."
+    },
+    "contact": {
+      "title": "Contact Ironclad Construction | Request a Bid",
+      "description": "Request a free bid from Ironclad Construction. Call (555) 123-4567 or fill out our online form. We respond within 24 hours."
+    }
+  },
+  "branding": {
+    "primaryColor": "#C8933A",
+    "secondaryColor": "#1C1C1C",
+    "accentColor": "#B93A2B"
+  }
+}
